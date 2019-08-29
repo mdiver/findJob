@@ -7,18 +7,18 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
   rules:
-  - host: findjobj.cloudzcp.io
+  - host: findjob.cloudzcp.io
     http:
       paths:
-      - path: /
+      - path: /company
         backend:
           serviceName: findjob-company-service
           servicePort: 9999
-      - path: /
+      - path: /recruit
         backend:
           serviceName: findjob-recruit-service
           servicePort: 10000
-      - path: /
+      - path: /applicant
         backend:
           serviceName: findjob-applicant-service
           servicePort: 10001
