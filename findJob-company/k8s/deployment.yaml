@@ -1,0 +1,61 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: findjob-company
+  namespace: findjob
+  labels:
+    app: findjob-company
+    component: findjob-company
+spec:
+  selector:
+    matchLabels:
+      app: findjob-company
+      component: findjob-company
+  replicas: 1
+  minReadySeconds: 5
+  progressDeadlineSeconds: 15
+  revisionHistoryLimit: 5
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: "100%"
+  template:
+    metadata:
+      labels:
+        app: findjob-company
+        component: findjob-company
+    spec:
+      restartPolicy: Always
+      containers:
+      - name: findjob-company
+        image: findjob/findjob-springboot:test
+        imagePullPolicy: Always
+#        command: ["fluentd", "-c", "/fluentd/etc/fluentd.conf", "-p", "/fluentd/plugins"]
+#        env:
+#        - name: _CONFIG
+#          value: aggregator.conf
+        resources:
+          limits:
+            cpu: 2
+            memory: 1024Mi
+          requests:
+            cpu: 1
+            memory: 250Mi
+        ports:
+        - name: findjob-company-input
+          containerPort: 9999
+          protocol: TCP
+#        livenessProbe:
+#          tcpSocket:
+#            port: 24224
+#          initialDelaySeconds: 5
+#          timeoutSeconds: 1
+#        volumeMounts:
+#        - name: -config
+#          mountPath: /etc
+#      volumes:
+#      - name: -config
+#        configMap:
+#          name: ""
+      terminationGracePeriodSeconds: 160
+
