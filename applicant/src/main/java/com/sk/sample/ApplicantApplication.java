@@ -43,13 +43,13 @@ public class ApplicantApplication {
 	}
 	
 	public void insertapplicants(ApplicantRepository applicantRepository) {
-		Applicant applicant1 = new Applicant("skcc", "SK C&C", new ApplicantInfo("skcc@sk.com", "010-1111-1111", "경기도 성남시 분당구 정자동", "3", true), Speciality.IT);
+		Applicant applicant1 = new Applicant("1", "아이유", new ApplicantInfo("iu@gmail.com", "010-1234-5678", "경기도 성남시 분당구 정자동", "3", false), Speciality.IT);
 		applicantRepository.save(applicant1);
 		
-		Applicant applicant2 = new Applicant("skc", "SKC", new ApplicantInfo("skc@sk.com", "010-2222-2222", "서울특뼐시 종로구", "7", true), Speciality.Manufacture);
+		Applicant applicant2 = new Applicant("2", "공유", new ApplicantInfo("skc@sk.com", "010-2222-2222", "서울특뼐시 종로구", "7", false), Speciality.Manufacture);
 		applicantRepository.save(applicant2);
 		
-		Applicant applicant3 = new Applicant("kb", "국민은행", new ApplicantInfo("kb@kbbank.com", "010-3333-3333", "몰라몰라", "10", true), Speciality.Finance);
+		Applicant applicant3 = new Applicant("3", "유희열", new ApplicantInfo("kb@kbbank.com", "010-3333-3333", "몰라몰라", "10", false), Speciality.Finance);
 		applicantRepository.save(applicant3);
 	}
 	
@@ -63,17 +63,17 @@ public class ApplicantApplication {
 		System.out.println("***************************************************************");
 	}
 	public void updateapplicants(ApplicantRepository applicantRepository) {
-        Applicant newapplicant = new Applicant("kb", "new국민은행", new ApplicantInfo("kb@kbbank.com", "010-5555-5555", "AHFFK","8", false), Speciality.IT);
+        Applicant newapplicant = new Applicant("2", "공유", new ApplicantInfo("kb@kbbank.com", "010-5555-5555", "AHFFK","10", true), Speciality.IT);
         
  
         ApplicantLogic logic = new ApplicantLogic(applicantRepository);
-        logic.updateApplicant("kb", newapplicant);
+        logic.updateApplicant("2", newapplicant);
         
 	}
 	
 	public void deleteapplicants(ApplicantRepository applicantRepository) {
 		ApplicantLogic logic = new ApplicantLogic(applicantRepository);
-		logic.deleteApplicant("skcc");
+		logic.deleteApplicant("3");
 	}
 
 }
