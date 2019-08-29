@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: findjob-applicant-service
+  namespace: findjob
+  labels:
+    app: findjob-applicant-service
+spec:
+  type: ClusterIP
+  selector:
+    app: findjob-applicant
+  ports:
+  - name: findjob-input
+    port: 9999
+    targetPort: findjob-input
+    protocol: TCP
