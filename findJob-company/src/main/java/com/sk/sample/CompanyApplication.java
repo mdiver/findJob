@@ -25,11 +25,11 @@ public class CompanyApplication {
 			
 			displayHello(companyRepository);
 			insertCompanys(companyRepository);
-			displayCompanys(companyRepository);
-			updateCompanys(companyRepository);
-			displayCompanys(companyRepository);
-			deleteCompanys(companyRepository);
-			displayCompanys(companyRepository);
+//			displayCompanys(companyRepository);
+//			updateCompanys(companyRepository);
+//			displayCompanys(companyRepository);
+//			deleteCompanys(companyRepository);
+//			displayCompanys(companyRepository);
 //			executeExample1(companyRepository);
 		};
 	}
