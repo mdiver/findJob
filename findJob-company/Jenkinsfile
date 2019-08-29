@@ -22,7 +22,7 @@ timestamps {
                 def repo = checkout scm
             }
 
-            ws('findJob-company') {    
+            dir('findJob-company') {    
                 stage('BUILD') {
                     container('maven') {
                         mavenBuild goal: 'clean package', systemProperties:['maven.repo.local':"/root/.m2/${JOB_NAME}"]
