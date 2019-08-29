@@ -1,11 +1,11 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: findjob-ingress
+  name: findjob-company-ingress
   namespace: findjob
 spec:
   rules:
-  - host: findjob-company-company-company-company-company-company-company-company-company.cloudzcp.io
+  - host: findjob-company.cloudzcp.io
     http:
       paths:
       - path: /
