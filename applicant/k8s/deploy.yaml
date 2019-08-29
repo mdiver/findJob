@@ -1,0 +1,45 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: findjob-applicant
+  namespace: findjob
+  labels:
+    app: findjob-applicant
+    component: findjob-applicant
+spec:
+  selector:
+    matchLabels:
+      app: findjob-applicant
+      component: findjob-applicant
+  replicas: 1
+  minReadySeconds: 5
+  progressDeadlineSeconds: 15
+  revisionHistoryLimit: 5
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: "100%"
+  template:
+    metadata:
+      labels:
+        app: findjob-applicant
+        component: findjob-applicant
+    spec:
+      restartPolicy: Always
+      containers:
+      - name: findjob-applicant
+        image: findjob/findjob-applicant-springboot
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: 500m
+            memory: 1024Mi
+          requests:
+            cpu: 100m
+            memory: 500Mi
+        ports:
+        - name: findjob-input
+          containerPort: 10001
+          protocol: TCP
+      terminationGracePeriodSeconds: 160
+
