@@ -72,5 +72,4 @@ public class RecruitApplication {
 		logic.deleteCompany("skcc");
 	}
 */
-
 }
