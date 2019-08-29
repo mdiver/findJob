@@ -11,6 +11,6 @@ spec:
     app: findjob-applicant
   ports:
   - name: findjob-input
-    port: 9999
+    port: 10001
     targetPort: findjob-input
     protocol: TCP
