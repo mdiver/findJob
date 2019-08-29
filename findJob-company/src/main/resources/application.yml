@@ -16,7 +16,7 @@ spring:
       path: /h2-console
    
   datasource:
-    url: jdbc:h2:mem:account
+    url: jdbc:h2:mem:company
     driverClassName: org.h2.Driver
     username: sa
     password:
