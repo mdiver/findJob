@@ -12,9 +12,13 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: findjob-service
+          serviceName: findjob-company-service
           servicePort: 9999
-  tls:
-  - secretName: cloudzcp-io-cert
-    hosts:
-    - findjob.cloudzcp.io
+      - path: /
+        backend:
+          serviceName: findjob-recruit-service
+          servicePort: 10000
+      - path: /
+        backend:
+          serviceName: findjob-applicant-service
+          servicePort: 10001
