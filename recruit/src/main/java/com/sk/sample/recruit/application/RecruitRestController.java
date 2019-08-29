@@ -1,9 +1,13 @@
 package com.sk.sample.recruit.application;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,36 +21,26 @@ public class RecruitRestController implements RecruitService {
 	private RecruitService recruitService;
 
 	@Override
-	@GetMapping("/{applicantID}")
-	public Recruit requestRecruitByApplicantID(@PathVariable("applicantID") String applicantID) {
-		return recruitService.requestRecruitByApplicantID(applicantID);
-	}
-
-	@Override
 	@PostMapping
-	public void recruitComplete(@PathVariable("applicantID") String applicantID, @PathVariable("companyID") String companyID) {
-		recruitService.recruitComplete(applicantID, companyID);
-		return ;
-	}
-/*
-	@Override
-	@PutMapping("/{companyID}")
-	public Recruit updateCompany(@PathVariable("companyID") String companyID, @RequestBody Recruit company) {
-		return companyService.updateCompany(companyID, company);
-	}
-
-	@Override
-	@DeleteMapping("/{companyID}")
-	public void deleteCompany(@PathVariable("companyID")  String companyID) {
-		companyService.deleteCompany(companyID);
+	public Recruit register(@RequestBody Recruit recruit) {
+		return recruitService.register(recruit);
 	}
 	
-
 	@Override
-	public Recruit findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	@GetMapping("/{applicantId}")
+	public List<Recruit> findByApplicantId(@PathVariable("applicantId") String applicantId) {
+		return recruitService.findByApplicantId(applicantId);
 	}
-
-*/
+	
+	@Override
+	@GetMapping("/{companyId}")
+	public List<Recruit> findByCompanyId(@PathVariable("companyId") String companyId) {
+		return recruitService.findByCompanyId(companyId);
+	}
+	
+	@Override
+	@PutMapping("/{recruitId}")
+	public Recruit update(@PathVariable("recruitId") String recruitId, @RequestBody Recruit recruit) {
+		return recruitService.update(recruitId, recruit);
+	}
 }

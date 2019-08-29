@@ -14,19 +14,19 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper=true)
 @Entity
 public class Recruit extends AbstractEntity implements AggregateRoot {
-    private String recruitID;
-	private String companyID;
-	private String applicantID;
+    private String recruitId;
+	private String companyId;
+	private String applicantId;
 	
 	@Enumerated(EnumType.STRING)
 	private RecruitStatus recruitStatus;
 	
 	
-	public Recruit(String recruitID, String companyID, String applicantID, RecruitStatus recruitStatus) {
+	public Recruit(String recruitId, String companyId, String applicantId, RecruitStatus recruitStatus) {
 
-		this.recruitID = recruitID;
-		this.companyID = companyID;
-		this.applicantID = applicantID;
+		this.recruitId = recruitId;
+		this.companyId = companyId;
+		this.applicantId = applicantId;
 		this.recruitStatus = recruitStatus;
 	}
 }
