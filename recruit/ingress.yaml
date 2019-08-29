@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: findjob-ingress
+  namespace: findjob
+spec:
+  rules:
+  - host: findjob-recruit.cloudzcp.io
+    http:
+      paths:
+      - path: /recruit
+        backend:
+          serviceName: findjob-recruit-service
+          servicePort: 10000
