@@ -11,9 +11,8 @@ import com.sk.sample.recruit.domain.model.Recruit;
 @RepositoryRestResource
 public interface RecruitRepository extends PagingAndSortingRepository<Recruit, Long>,
                                               QueryDslPredicateExecutor<Recruit> {
-	Recruit findByApplicantID(@Param("applicantID") String applicantID);
+	Recruit requestRecruitByApplicantID(@Param("applicantID") String applicantID);
 	
-	
-	
+	void recruitComplete(@Param("applicantID") String applicantID, @Param("companyID") String companyID);
 }
  
