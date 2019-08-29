@@ -42,7 +42,7 @@ spec:
             cpu: 1
             memory: 250Mi
         ports:
-        - name: findjob-company-input
+        - name: findjob-input
           containerPort: 9999
           protocol: TCP
 #        livenessProbe:

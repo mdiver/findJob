@@ -10,7 +10,7 @@ spec:
   selector:
     app: findjob-company
   ports:
-  - name: findjob-company-input
+  - name: findjob-input
     port: 9999
-    targetPort: findjob-company-input
+    targetPort: findjob-input
     protocol: TCP
