@@ -2,7 +2,7 @@
 def label = "jenkins-${UUID.randomUUID().toString()}"
 
 def ZCP_USERID='happytree'
-def DOCKER_IMAGE='findjob/findjob-company-springboot'
+def DOCKER_IMAGE='findjob/findjob-applicant-springboot'
 def K8S_NAMESPACE='findjob'
 
 timestamps {
@@ -22,7 +22,7 @@ timestamps {
                 def repo = checkout scm
             }
 
-            dir('findJob-company') {    
+            dir('applicant') {    
                 stage('BUILD') {
                     container('maven') {
                         mavenBuild goal: 'clean package', systemProperties:['maven.repo.local':"/root/.m2/${JOB_NAME}"]

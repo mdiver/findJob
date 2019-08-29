@@ -1,16 +1,16 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: findjob-company
+  name: findjob-recruit
   namespace: findjob
   labels:
-    app: findjob-company
-    component: findjob-company
+    app: findjob-recruit
+    component: findjob-recruit
 spec:
   selector:
     matchLabels:
-      app: findjob-company
-      component: findjob-company
+      app: findjob-recruit
+      component: findjob-recruit
   replicas: 1
   minReadySeconds: 5
   progressDeadlineSeconds: 15
@@ -22,24 +22,24 @@ spec:
   template:
     metadata:
       labels:
-        app: findjob-company
-        component: findjob-company
+        app: findjob-recruit
+        component: findjob-recruit
     spec:
       restartPolicy: Always
       containers:
-      - name: findjob-company
-        image: findjob/findjob-company-springboot
+      - name: findjob-recruit
+        image: findjob/findjob-recruit-springboot
         imagePullPolicy: Always
         resources:
           limits:
+            cpu: 500m
+            memory: 1024Mi
+          requests:
             cpu: 100m
             memory: 500Mi
-          requests:
-            cpu: 50m
-            memory: 250Mi
         ports:
         - name: findjob-input
-          containerPort: 9999
+          containerPort: 10001
           protocol: TCP
       terminationGracePeriodSeconds: 160
 
