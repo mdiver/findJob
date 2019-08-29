@@ -27,6 +27,6 @@ public class Recruit extends AbstractEntity implements AggregateRoot {
 		this.recruitID = recruitID;
 		this.companyID = companyID;
 		this.applicantID = applicantID;
-		this.recruitStatus = recruitStatus;///
+		this.recruitStatus = recruitStatus;//
 	}
 }
