@@ -39,7 +39,7 @@ spec:
             memory: 500Mi
         ports:
         - name: findjob-input
-          containerPort: 10001
+          containerPort: 10000
           protocol: TCP
       terminationGracePeriodSeconds: 160
 
