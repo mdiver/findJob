@@ -42,9 +42,9 @@ public class CompanyLogic implements CompanyService {
 		if(oldCompany != null)
 		{
 
-			oldCompany.setName(newCompany.getName());
-			oldCompany.setCategory(newCompany.getCategory());
-			oldCompany.setInfo(newCompany.getInfo());
+//			oldCompany.setName(newCompany.getName());
+//			oldCompany.setCategory(newCompany.getCategory());
+//			oldCompany.setInfo(newCompany.getInfo());
 			return companyRepository.save(oldCompany);
 		}
 		return null;
