@@ -8,4 +8,4 @@ COPY /target/company-0.0.1-SNAPSHOT.jar findjob-springboot.jar
 #  -Xms512m \
 #  -Xmx1024m"
 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/findjob-springboot.jar"]~
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","findjob-springboot.jar"]~
