@@ -1,5 +1,5 @@
 server:
-  port: 9999
+  port: 10000
 
 spring:
   profiles:
@@ -16,7 +16,7 @@ spring:
       path: /h2-console
    
   datasource:
-    url: jdbc:h2:mem:company
+    url: jdbc:h2:mem:recruit
     driverClassName: org.h2.Driver
     username: sa
     password:
