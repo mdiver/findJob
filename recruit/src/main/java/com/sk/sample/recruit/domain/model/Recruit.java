@@ -16,7 +16,7 @@ import lombok.EqualsAndHashCode;
 public class Recruit extends AbstractEntity implements AggregateRoot {
     private String recruitID;
 	private String companyID;
-	private String applicantID;//test
+	private String applicantID;
 	
 	@Enumerated(EnumType.STRING)
 	private RecruitStatus recruitStatus;
