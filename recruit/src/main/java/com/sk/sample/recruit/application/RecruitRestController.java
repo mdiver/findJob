@@ -3,6 +3,7 @@ package com.sk.sample.recruit.application;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,16 +18,17 @@ public class RecruitRestController implements RecruitService {
 
 	@Override
 	@GetMapping("/{applicantID}")
-	public Recruit findByApplicantID(@PathVariable("applicantID") String applicantID) {
-		return recruitService.findByApplicantID(applicantID);
-	}
-/*
-	@Override
-	@PostMapping
-	public Recruit register(@RequestBody Recruit company) {
-		return companyService.register(company);
+	public Recruit requestRecruitByApplicantID(@PathVariable("applicantID") String applicantID) {
+		return recruitService.requestRecruitByApplicantID(applicantID);
 	}
 
+	@Override
+	@PostMapping
+	public void recruitComplete(@PathVariable("applicantID") String applicantID, @PathVariable("companyID") String companyID) {
+		recruitService.recruitComplete(applicantID, companyID);
+		return ;
+	}
+/*
 	@Override
 	@PutMapping("/{companyID}")
 	public Recruit updateCompany(@PathVariable("companyID") String companyID, @RequestBody Recruit company) {
@@ -47,7 +49,4 @@ public class RecruitRestController implements RecruitService {
 	}
 
 */
-
-
-
 }
