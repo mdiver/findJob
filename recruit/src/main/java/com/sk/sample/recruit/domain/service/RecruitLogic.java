@@ -18,12 +18,18 @@ public class RecruitLogic implements RecruitService {
 		this.recruitRepository = recruitRepository;
 	}
 
-
 	@Override
 	@Transactional(readOnly=true)
-	public Recruit findByApplicantID(String applicantID) {
+	public Recruit requestRecruitByApplicantID(String applicantID) {
 		// TODO Auto-generated method stub
-		return recruitRepository.findByApplicantID(applicantID);
+		return recruitRepository.requestRecruitByApplicantID(applicantID);
+	}
+	
+	@Override
+	@Transactional(readOnly=true)
+	public void recruitComplete(String applicantID, String companyID) {
+		// TODO Auto-generated method stub
+		recruitRepository.recruitComplete(applicantID, companyID);
 	}
 
 }
