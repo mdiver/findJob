@@ -8,7 +8,7 @@ spec:
   - host: findjob-recruit.cloudzcp.io
     http:
       paths:
-      - path: /recruit
+      - path: /
         backend:
           serviceName: findjob-recruit-service
           servicePort: 10000
