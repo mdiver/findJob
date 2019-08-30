@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: findjob-company-ingress
+  namespace: findjob
+spec:
+  rules:
+  - host: findjob-company.cloudzcp.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: findjob-company-service
+          servicePort: 9999

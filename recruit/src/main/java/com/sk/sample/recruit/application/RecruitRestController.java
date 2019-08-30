@@ -27,13 +27,13 @@ public class RecruitRestController implements RecruitService {
 	}
 	
 	@Override
-	@GetMapping("/{applicantId}")
+	@GetMapping("/applicantID/{applicantId}")
 	public List<Recruit> findByApplicantId(@PathVariable("applicantId") String applicantId) {
 		return recruitService.findByApplicantId(applicantId);
 	}
 	
 	@Override
-	@GetMapping("/{companyId}")
+	@GetMapping("/companyID/{companyId}")
 	public List<Recruit> findByCompanyId(@PathVariable("companyId") String companyId) {
 		return recruitService.findByCompanyId(companyId);
 	}
