@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.sk.sample.company.application.proxy.feign.ApplicantProxy;
+import com.sk.sample.company.application.proxy.feign.dto.applicant.Applicant;
 import com.sk.sample.company.domain.model.Company;
 import com.sk.sample.company.domain.model.Company_Category;
 import com.sk.sample.company.domain.repository.CompanyRepository;
@@ -15,10 +17,13 @@ import com.sk.sample.company.domain.repository.CompanyRepository;
 public class CompanyLogic implements CompanyService {
 	@Autowired
 	private CompanyRepository companyRepository;
+	@Autowired
+	private ApplicantProxy applicantProxy;
 	
-	public CompanyLogic(CompanyRepository companyRepository)
+	public CompanyLogic(CompanyRepository companyRepository, ApplicantProxy applicantProxy)
 	{
 		this.companyRepository = companyRepository;
+		this.applicantProxy = applicantProxy;
 	}
 
 	@Override
@@ -70,6 +75,13 @@ public class CompanyLogic implements CompanyService {
 	@Transactional
 	public Company register(Company company) {
 		return companyRepository.save(company);
+	}
+	
+	@Override
+	@Transactional
+	public Applicant findByApplicantID(String applicantID) {
+		Applicant applicant = applicantProxy.findApplicant(applicantID);
+		return applicant;
 	}
 
 

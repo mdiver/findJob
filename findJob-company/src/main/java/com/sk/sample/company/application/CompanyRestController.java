@@ -3,8 +3,6 @@ package com.sk.sample.company.application;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,9 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sk.sample.company.application.proxy.feign.dto.applicant.Applicant;
 import com.sk.sample.company.domain.model.Company;
 import com.sk.sample.company.domain.model.Company_Category;
 import com.sk.sample.company.domain.service.CompanyService;
@@ -61,7 +59,12 @@ public class CompanyRestController implements CompanyService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	@Override
+	@GetMapping("applicant/{applicantID}")
+	public Applicant findByApplicantID(@PathVariable("applicantID") String applicantID) {
+		return companyService.findByApplicantID(applicantID);
+	}
 
 
 

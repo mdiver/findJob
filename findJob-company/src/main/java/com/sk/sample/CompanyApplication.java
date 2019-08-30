@@ -3,16 +3,18 @@ package com.sk.sample;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
+import com.sk.sample.company.domain.model.Company;
 import com.sk.sample.company.domain.model.Company_Category;
 import com.sk.sample.company.domain.model.Company_info;
-import com.sk.sample.company.domain.model.Company;
 import com.sk.sample.company.domain.repository.CompanyRepository;
 import com.sk.sample.company.domain.service.CompanyLogic;
 
 
 @SpringBootApplication
+@EnableFeignClients
 public class CompanyApplication {
 
 	public static void main(String[] args) {
@@ -65,14 +67,14 @@ public class CompanyApplication {
         Company newCompany = new Company("kb", "new국민은행", new Company_info("kb@kbbank.com", "010-5555-5555", "AHFFK"), Company_Category.IT);
         
  
-        CompanyLogic logic = new CompanyLogic(companyRepository);
-        logic.updateCompany("kb", newCompany);
+//        CompanyLogic logic = new CompanyLogic(companyRepository);
+//        logic.updateCompany("kb", newCompany);
         
 	}
 	
 	public void deleteCompanys(CompanyRepository companyRepository) {
-		CompanyLogic logic = new CompanyLogic(companyRepository);
-		logic.deleteCompany("skcc");
+//		CompanyLogic logic = new CompanyLogic(companyRepository);
+//		logic.deleteCompany("skcc");
 	}
 
 }
